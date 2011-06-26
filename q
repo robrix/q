@@ -23,5 +23,5 @@ module Q
 		DEFAULT_SHORTCUT
 	end
 	
-	@@registered_commands[SHORTCUT].execute(ARGV)
+	puts @@registered_commands[SHORTCUT].execute(ARGV)
 end
