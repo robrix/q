@@ -21,3 +21,9 @@ q is a small tool for performing repetitive tasks from the console. Where you us
 		q ruby Hash
 	
 	Looks up the docs for Hash on ruby-doc.org. A synonym is `rb`.
+
+4. Looking up Cocoa/related documentation:
+
+		q ns Array
+	
+	Looks up the docs for NSArray in the on-disk filesystem (uses globbing to find them); therefore it doesn’t require an internet connection and finishes very quickly. Synonyms are: ca, cf, cg, dom, eagl, gl, glu, ib, qt, ui, web.
