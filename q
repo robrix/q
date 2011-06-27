@@ -14,6 +14,7 @@ module Q
 	end
 
 	require "lib/command"
+	require "lib/commands/glob"
 	require "lib/commands/search"
 	
 	DEFAULT_SHORTCUT = :search
@@ -23,5 +24,5 @@ module Q
 		DEFAULT_SHORTCUT
 	end
 	
-	puts @@registered_commands[SHORTCUT].execute(ARGV)
+	puts @@registered_commands[SHORTCUT].execute(SHORTCUT, ARGV)
 end

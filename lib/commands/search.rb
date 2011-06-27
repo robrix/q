@@ -5,7 +5,7 @@ module Q
 		end
 		
 		
-		def execute(terms = [])
+		def execute(shortcut, terms)
 			url = @url_pattern % terms.join("+")
 			%x{osascript -e 'open location "#{url}"'}
 			url

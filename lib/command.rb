@@ -1,7 +1,6 @@
 module Q
 	class Command
-		def execute(arguments = [])
-			
+		def execute(shortcut, terms)
 		end
 	end
 end
