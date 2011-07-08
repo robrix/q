@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+module Q
+	begin
+		require "q"
+	rescue LoadError
+		require "rubygems"
+		require "q"
+	end
+end
