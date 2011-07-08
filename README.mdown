@@ -16,7 +16,7 @@ q is a small tool for performing repetitive tasks from the console. Where you us
 
 		q search search terms
 	
-	Searches for the passed-in terms on Google. Synonyms are `google`, `g`.
+	Searches for the passed-in terms on Google. Synonyms are `google`, `g`. This is also the default, so if you enter `q foo bar` it will google for “foo bar” (assuming you haven’t got a command with the shortcut “foo” installed).
 
 
 2. Looking up Wikipedia articles:
