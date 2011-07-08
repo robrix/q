@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
 	s.summary = %q{q is for query.}
 	s.homepage = %q{https://github.com/robrix/q/}
 	s.description = %q{Automate bits of your everyday workflow with q commands.}
-	s.files = %w(README.mdown bin/q lib/command.rb lib/commands/glob.rb lib/commands/search.rb)
+	s.files = `git ls-files`.split($/) - ["q.gemspec"]
 	s.executables = %w(q)
+	s.require_path = 'lib'
 end

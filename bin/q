@@ -12,13 +12,22 @@ module Q
 			@@registered_commands[shortcut.to_sym] = command
 		end
 	end
-
-	require "lib/command"
-	require "lib/commands/glob"
-	require "lib/commands/search"
+	
+	def self.commands
+		@@registered_commands
+	end
+	
+	begin
+		require "q"
+	rescue LoadError
+		require "rubygems"
+		require "q"
+	end
 	
 	DEFAULT_SHORTCUT = :search
-	SHORTCUT = if @@registered_commands.has_key? ARGV.first.to_sym
+	SHORTCUT = if ARGV.empty?
+		:help
+	elsif @@registered_commands.has_key? ARGV.first.to_sym
 		ARGV.shift.to_sym
 	else
 		DEFAULT_SHORTCUT
@@ -26,3 +35,6 @@ module Q
 	
 	puts @@registered_commands[SHORTCUT].execute(SHORTCUT, ARGV)
 end
+
+__END__
+usage for q
