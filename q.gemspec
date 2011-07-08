@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-	s.name = %q{q} # :)
+	s.name = %q{qtool} # there is already a q on rubygems.org
 	s.version = "0.1.0"
 	s.date = %q{2011-07-08}
 	s.authors = ["Rob Rix"]
