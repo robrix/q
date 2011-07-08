@@ -1,40 +1,10 @@
 #!/usr/bin/env ruby
 
 module Q
-	@@registered_commands = {}
-	
-	def self.register_command(shortcut, command)
-		if shortcut.is_a? Array
-			shortcut.each do |s|
-				register_command(s, command)
-			end
-		else
-			@@registered_commands[shortcut.to_sym] = command
-		end
-	end
-	
-	def self.commands
-		@@registered_commands
-	end
-	
 	begin
 		require "q"
 	rescue LoadError
 		require "rubygems"
 		require "q"
 	end
-	
-	DEFAULT_SHORTCUT = :search
-	SHORTCUT = if ARGV.empty?
-		:help
-	elsif @@registered_commands.has_key? ARGV.first.to_sym
-		ARGV.shift.to_sym
-	else
-		DEFAULT_SHORTCUT
-	end
-	
-	puts @@registered_commands[SHORTCUT].execute(SHORTCUT, ARGV)
 end
-
-__END__
-usage for q

@@ -5,4 +5,3 @@ end
 task :install do |t|
 	%x{gem install *.gem}
 end
-

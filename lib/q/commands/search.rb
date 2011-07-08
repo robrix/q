@@ -1,7 +1,8 @@
 module Q
 	class Search < Command
-		def initialize(url_pattern)
+		def initialize(url_pattern, usage)
 			@url_pattern = url_pattern
+			super(usage)
 		end
 		
 		
@@ -12,7 +13,7 @@ module Q
 		end
 	end
 	
-	register_command([:search, :google, :g], Search.new("http://www.google.com/search?q=%s"))
-	register_command([:ruby, :rb], Search.new("http://ruby-doc.org/core/classes/%s.html"))
-	register_command([:wikipedia, :wp], Search.new("http://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go"))
+	register_command([:search, :google, :g], Search.new("http://www.google.com/search?q=%s", "TERM ... -- search for TERMs on google"))
+	register_command([:ruby, :rb], Search.new("http://ruby-doc.org/core/classes/%s.html", "CLASS -- look up CLASS on ruby-doc.org"))
+	register_command([:wikipedia, :wp], Search.new("http://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go", "ARTICLE -- look up [article] on wikipedia"))
 end

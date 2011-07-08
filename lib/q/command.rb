@@ -1,11 +1,23 @@
 module Q
 	class Command
+		def initialize(usage)
+			@usage = usage
+			@registered_shortcuts = []
+		end
+		
+		
 		def execute(shortcut, terms)
-			"an implementation for #{shortcut} has not been written"
+			"#{shortcut} is unimplemented"
 		end
 		
 		def help(shortcut, terms)
-			"help for #{shortcut} has not been written"
+			usage || "#{shortcut} is undocumented"
 		end
+		
+		def usage
+			registered_shortcuts.map{ |shortcut| shortcut.to_s }.join("|") + " " + @usage
+		end
+		
+		attr_reader :registered_shortcuts
 	end
 end

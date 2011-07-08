@@ -1,7 +1,8 @@
 module Q
 	class Glob < Command
-		def initialize(patterns)
+		def initialize(patterns, usage)
 			@patterns = patterns
+			super(usage)
 		end
 		
 		def execute(shortcut, terms)
@@ -14,6 +15,16 @@ module Q
 				end
 			end
 			matches.first
+		end
+		
+		def help(shortcut, terms)
+			short = usage
+			if terms.include?("-v") or terms.include?("--verbose")
+				long = $/ + @patterns.join($/) + $/ + $/ + "(%{0}, %{1}, ... are replaced with the shortcut and terms)"
+				short + $/ + long
+			else
+				short + $/ + "(use `q help #{shortcut} --verbose` or `q help #{shortcut} -v` for the relevant patterns)"
+			end
 		end
 		
 		protected
@@ -56,5 +67,5 @@ module Q
 	
 	PREFIXES = %w(ca cf cg dom eagl gl glu ib ns qt ui web)
 	
-	register_command(PREFIXES.collect{ |prefix| prefix.to_sym }, Glob.new(PATTERN_PATHS))
+	register_command(PREFIXES.collect{ |prefix| prefix.to_sym }, Glob.new(PATTERN_PATHS, "CLASS -- glob through Cocoa documentation for CLASS"))
 end
