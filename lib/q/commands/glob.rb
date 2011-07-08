@@ -1,5 +1,5 @@
 module Q
-	class Glob
+	class Glob < Command
 		def initialize(patterns)
 			@patterns = patterns
 		end

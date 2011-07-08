@@ -1,8 +1,8 @@
 module Q
-	class Help
+	class Help < Command
 		def execute(shortcut, terms)
 			shortcut = terms.shift.to_sym || :help
-			commands[shortcut].help(shortcut, terms)
+			Q.commands[shortcut].help(shortcut, terms)
 		end
 		
 		def help(shortcut, terms)
