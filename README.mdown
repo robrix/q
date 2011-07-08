@@ -1,6 +1,16 @@
 #q is for query
 
-q is a small tool for performing repetitive tasks from the console. Where you use rake to automate a project’s tasks, you’d use q to automate your own workflow a little. q commands are relatively free-form, with a few built-in ones that I use frequently enough:
+…and don’t you forget it!
+
+##how do I get it?
+
+	gem install qtool
+
+##what is it?
+
+q is a small tool for performing repetitive tasks from the console. Where you use rake to automate a project’s tasks, you’d use q to automate your own workflow a little. q commands are relatively free-form, with a few built-in ones that I use frequently enough.
+
+##how do I use it?
 
 1. Searching via Google:
 
@@ -27,3 +37,7 @@ q is a small tool for performing repetitive tasks from the console. Where you us
 		q ns Array
 	
 	Looks up the docs for NSArray in the on-disk filesystem (uses globbing to find them); therefore it doesn’t require an internet connection and finishes very quickly. Synonyms are: ca, cf, cg, dom, eagl, gl, glu, ib, qt, ui, web.
+
+##how do I add my own commands?
+
+*commence vague hand-waving* Write a subclass of Q::Command! And, um, let q know about it in some mysterious way that I haven’t figured out yet. Suggestions are welcome.
