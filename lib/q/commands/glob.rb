@@ -54,13 +54,11 @@ module Q
 		"%{0}%{1}_ClassRef/Reference/%{0}%{1}.html", # iPhone/OpenGL ES
 		"%{0}%{1}_protocol/Reference/%{0}%{1}.html",
 		"%{0}%{1}_protocol/Reference/Reference.html",
-		"*/Protocols/%{0}%{1}_protocol/Reference/Reference.html",
-		"*/Classes/%{0}%{1}_Class/Introduction/Introduction.html",
-		"*/Classes/%{0}%{1}_Class/Reference/%{0}%{1}.html",
-		"*/Classes/%{0}%{1}_Class/Reference/Reference.html",
-		"Foundation/Classes/%{0}%{1}_Class/Reference/Reference.html",
+		"*/*/%{0}%{1}_*/Reference/Reference.html",
+		"*/*/%{0}%{1}_*/Introduction/Introduction.html",
+		"*/*/%{0}%{1}_*/Reference/%{0}%{1}.html",
+		"*/*/%{0}%{1}_*/%{0}%{1}.html",
 		"ManPages/man3/%{0}%{1}.3.html", # man pages, e.g. OpenGL man pages
-		"*/Classes/%{0}%{1}_Class/%{0}%{1}.html",
 		"*/Classes/%{0}%{1}_WebKitAdditions/Reference/Reference.html",
 	]
 	PATTERN_PATHS = (DOCSET_PATHS.reduce([]){ |memo, docset_path| memo + PATTERNS.collect{ |pattern| docset_path + DOCSET_CONTENTS_PATH + pattern } }).flatten
