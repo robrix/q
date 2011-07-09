@@ -37,9 +37,9 @@ module Q
 	end
 	
 	DOCSET_PATHS = [ # docsets to search within
-		"/Library/Developer/Shared/Documentation/DocSets/*.docset",
-		"/Developer/Documentation/DocSets/*.docset",
-		"/Developer/Platforms/*.platform/Developer/Documentation/DocSets/*.docset"
+		`xcode-select -print-path`.strip + "/Documentation/DocSets/*.docset",
+		`xcode-select -print-path`.strip + "/Platforms/*.platform/Developer/Documentation/DocSets/*.docset",
+		"/Library/Developer/Documentation/DocSets/*.docset",
 	]
 	DOCSET_CONTENTS_PATH = "/Contents/Resources/Documents/documentation/*/Reference/"
 	PATTERNS = [ # these patterns are matched within <docset>/Contents/Resources/Documents/documentation/*/Reference/
