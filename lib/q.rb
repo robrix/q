@@ -36,5 +36,11 @@ module Q
 		DEFAULT_SHORTCUT
 	end
 	
-	puts @@registered_commands[SHORTCUT].execute(SHORTCUT, ARGV)
+	result = @@registered_commands[SHORTCUT].execute(SHORTCUT, ARGV)
+	if result
+		puts result
+	else
+		puts "No result for #{File.basename $0} #{SHORTCUT} #{ARGV.join(", ")}"
+		exit 1
+	end
 end
