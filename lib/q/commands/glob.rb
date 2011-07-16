@@ -37,12 +37,12 @@ module Q
 	end
 	
 	DOCSET_PATHS = [ # docsets to search within
-		`xcode-select -print-path`.strip + "/Documentation/DocSets/*.docset",
 		`xcode-select -print-path`.strip + "/Platforms/*.platform/Developer/Documentation/DocSets/*.docset",
+		`xcode-select -print-path`.strip + "/Documentation/DocSets/*.docset",
 		"/Library/Developer/Documentation/DocSets/*.docset",
-	]
+	].reverse
 	DOCSET_CONTENTS_PATH = "/Contents/Resources/Documents/documentation/*/Reference"
-	PATTERNS = [ # these patterns are matched within <docset>/Contents/Resources/Documents/documentation/*/Reference/
+	PATTERNS = [
 		"{,/*/*}/%0%1{_Class,_ClassRef,_Protocol,Ref}/Reference/Reference.html",
 		"{,/*/*}/%0%1{_Class,_ClassRef,_Protocol,Ref}/Reference/%0%1.html",
 		"{,/*/*}/%0%1{_Class,_ClassRef,_Protocol,Ref}/Introduction/Introduction.html",
