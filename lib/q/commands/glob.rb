@@ -41,7 +41,9 @@ module Q
 		`xcode-select -print-path`.strip + "/Documentation/DocSets/*.docset",
 		"/Library/Developer/Documentation/DocSets/*.docset",
 		"/Library/Developer/Shared/Documentation/DocSets/*.docset",
-	].reverse
+	].reverse.reject do |docset_pattern|
+		Dir.glob(docset_pattern).empty?
+	end
 	DOCSET_CONTENTS_PATH = "/Contents/Resources/Documents/documentation/*/Reference"
 	PATTERNS = [
 		"{,/*/*}/%0%1{_Class,_ClassRef,_Protocol,Ref}/Reference/Reference.html",
