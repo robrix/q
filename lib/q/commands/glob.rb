@@ -40,6 +40,7 @@ module Q
 		`xcode-select -print-path`.strip + "/Platforms/*.platform/Developer/Documentation/DocSets/*.docset",
 		`xcode-select -print-path`.strip + "/Documentation/DocSets/*.docset",
 		"/Library/Developer/Documentation/DocSets/*.docset",
+		"/Library/Developer/Shared/Documentation/DocSets/*.docset",
 	].reverse
 	DOCSET_CONTENTS_PATH = "/Contents/Resources/Documents/documentation/*/Reference"
 	PATTERNS = [
